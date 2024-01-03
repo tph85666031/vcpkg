@@ -30,6 +30,7 @@ vcpkg_cmake_configure(
         -DWITH_APPS=OFF
         -DWITH_BROKER=OFF
         -DWITH_BUNDLED_DEPS=OFF
+        -D_WIN32_WINNT=0x0501
     MAYBE_UNUSED_VARIABLES
         WITH_WEBSOCKETS
         STATIC_WEBSOCKETS
