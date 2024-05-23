@@ -6,6 +6,7 @@ vcpkg_from_github(
     HEAD_REF master
     PATCHES
         fix-dependency.patch
+        fix_GetTickCount64.patch
 )
 
 vcpkg_check_features(

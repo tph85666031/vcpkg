@@ -73,6 +73,7 @@ vcpkg_cmake_configure(
         -DENABLE_MANUAL=OFF
         -DCURL_CA_FALLBACK=ON
         -DCURL_USE_LIBPSL=OFF
+        -DCURL_TARGET_WINDOWS_VERSION=0x0501
     OPTIONS_DEBUG
         -DENABLE_DEBUG=ON
 )
