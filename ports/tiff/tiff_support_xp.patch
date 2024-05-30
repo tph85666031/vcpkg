@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cdd549506..33d708d21 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -42,6 +42,10 @@ project(tiff
+         VERSION "${LIBTIFF_VERSION}"
+         LANGUAGES C CXX)
+ 
++if(WIN32)
++    add_definitions(-D_WIN32_WINNT=${CMAKE_WIN32_WINNT})
++endif()
++
+ if(NOT CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+   # libtiff is being included as a subproject of some other project.
+   set(TIFF_INSTALL_DEFAULT OFF)

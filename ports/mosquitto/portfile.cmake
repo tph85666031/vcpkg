@@ -9,6 +9,7 @@ vcpkg_from_github(
         0004-support-static-build.patch
         0005-websocket-shared-lib-name.patch
         0006-pthreads-for-windows.patch
+		mosquitto_support_xp.patch
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "static" STATIC_LINKAGE)

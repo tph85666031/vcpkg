@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+	"podofo",
+	"mosquitto",
+	"cairo",
+	"curl",
+	"libmagic",
+	"fltk",
+	"libarchive",
+	"libsmb2",
+	"libqrencode",
+	"libzip"
+  ],
+  "builtin-baseline": "d82047f60c3b302d5e6544bc371326b1e2c5d0f5"
+}

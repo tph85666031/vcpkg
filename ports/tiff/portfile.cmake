@@ -7,6 +7,7 @@ vcpkg_from_gitlab(
     HEAD_REF master
     PATCHES
         FindCMath.patch
+		tiff_support_xp.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
@@ -41,6 +42,7 @@ vcpkg_cmake_configure(
         -DCMAKE_DISABLE_FIND_PACKAGE_GLUT=ON
         -DZSTD_HAVE_DECOMPRESS_STREAM=ON
         -DHAVE_JPEGTURBO_DUAL_MODE_8_12=OFF
+		-DCMAKE_WIN32_WINNT=0x0501
     OPTIONS_DEBUG
         -DCMAKE_DEBUG_POSTFIX=d # tiff sets "d" for MSVC only.
     MAYBE_UNUSED_VARIABLES

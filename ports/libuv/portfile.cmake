@@ -5,6 +5,7 @@ vcpkg_from_github(
     SHA512 e3a7c10ffd909f9b128fb2316e09b8456e87278107178b49368f31ba30e7f62d64e7eba650cc59ef2d7eb178199c7a2c5b5c99b333849200492235116d7aee7a
     HEAD_REF v1.x
     PATCHES fix-build-type.patch
+	        libuv_support_xp.patch
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "dynamic" LIBUV_BUILD_SHARED)

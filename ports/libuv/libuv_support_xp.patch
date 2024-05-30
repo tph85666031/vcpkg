@@ -1,0 +1,37 @@
+diff --git a/src/win/util.c b/src/win/util.c
+index 3e2961b19..edb167eb8 100644
+--- a/src/win/util.c
++++ b/src/win/util.c
+@@ -581,7 +581,7 @@ int uv_resident_set_memory(size_t* rss) {
+
+
+ int uv_uptime(double* uptime) {
+-  *uptime = GetTickCount64() / 1000.0;
++  *uptime = GetTickCount() / 1000.0;
+   return 0;
+ }
+
+diff --git a/src/win/fs.c b/src/win/fs.c
+index fc209c54f..045a3cfd8 100644
+--- a/src/win/fs.c
++++ b/src/win/fs.c
+@@ -759,16 +759,13 @@ void fs__open(uv_fs_t* req) {
+   }
+ 
+   if (flags & UV_FS_O_FILEMAP) {
+-    FILE_STANDARD_INFO file_info;
+-    if (!GetFileInformationByHandleEx(file,
+-                                      FileStandardInfo,
+-                                      &file_info,
+-                                      sizeof file_info)) {
++    BY_HANDLE_FILE_INFORMATION file_info;
++    if (!GetFileInformationByHandle(file, &file_info)) {
+       SET_REQ_WIN32_ERROR(req, GetLastError());
+       CloseHandle(file);
+       return;
+     }
+-    fd_info.is_directory = file_info.Directory;
++    fd_info.is_directory = (file_info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+ 
+     if (fd_info.is_directory) {
+       fd_info.size.QuadPart = 0;

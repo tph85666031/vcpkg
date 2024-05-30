@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bf52edb78..f6b1660db 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -68,6 +68,10 @@ endif()
+ # application bundles would break our iOS packages.)
+ set(CMAKE_MACOSX_BUNDLE FALSE)
+ 
++if(WIN32)
++    add_definitions(-D_WIN32_WINNT=${CMAKE_WIN32_WINNT})
++endif()
++
+ get_property(GENERATOR_IS_MULTI_CONFIG GLOBAL PROPERTY
+   GENERATOR_IS_MULTI_CONFIG)
+ # If the GENERATOR_IS_MULTI_CONFIG property doesn't exist (CMake < 3.9), then
