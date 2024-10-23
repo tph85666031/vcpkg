@@ -1,0 +1,26 @@
+diff --git a/lib/mosquitto.c b/lib/mosquitto.c
+index a83d43a7f..810834086 100644
+--- a/lib/mosquitto.c
++++ b/lib/mosquitto.c
+@@ -58,7 +58,7 @@ int mosquitto_lib_init(void)
+
+        if (init_refcount == 0) {
+ #ifdef WIN32
+-               srand((unsigned int)GetTickCount64());
++               srand((unsigned int)GetTickCount());
+ #elif _POSIX_TIMERS>0 && defined(_POSIX_MONOTONIC_CLOCK)
+                struct timespec tp;
+ #ifdef CLOCK_BOOTTIME
+diff --git a/lib/time_mosq.c b/lib/time_mosq.c
+index 110322a40..0ae7ea83a 100644
+--- a/lib/time_mosq.c
++++ b/lib/time_mosq.c
+@@ -39,7 +39,7 @@ Contributors:
+ time_t mosquitto_time(void)
+ {
+ #ifdef WIN32
+-	return GetTickCount64()/1000;
++	return GetTickCount()/1000;
+ #elif _POSIX_TIMERS>0 && defined(_POSIX_MONOTONIC_CLOCK)
+ 	struct timespec tp;
+ 
